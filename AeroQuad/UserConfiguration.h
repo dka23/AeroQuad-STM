@@ -158,6 +158,9 @@
 
 //#define CONFIG_BAUDRATE 19200 // overrides default baudrate for serial port (Configurator/MavLink/WirelessTelemetry)
 
+#define GraupnerHoTTv4Telemetry // Enables Grauper HoTT v4 Telemetry
+#define GraupnerHoTT_SerialPort  3
+
 //
 // *******************************************************************************************************************************
 // Optional audio channel telemetry (for ground station tracking purposes)

@@ -1262,6 +1262,11 @@
   #include <AQ_RSCode.h>
 #endif
 
+// HoTT telemtry
+#ifdef GraupnerHoTTv4Telemetry
+  #include <Graupner_HoTT_V4.h>
+#endif
+
 #ifdef SoftModem
   #include <AQ_SoftModem.h>
 #endif
@@ -1397,6 +1402,10 @@ void setup() {
 
   #ifdef SlowTelemetry
      initSlowTelemetry();
+  #endif
+
+  #ifdef GraupnerHoTTv4Telemetry
+    initializeTelemetry();
   #endif
 
   previousTime = micros();
@@ -1569,6 +1578,11 @@ void loop () {
   deltaTime = currentTime - previousTime;
 
   measureCriticalSensors();
+
+  #ifdef GraupnerHoTTv4Telemetry
+    processTelemetryCommand();
+    sendTelemetry();
+  #endif
 
   // ================================================================
   // 100Hz task loop
